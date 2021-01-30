@@ -1,4 +1,5 @@
-# system initialization
+# Centos 7.X
+## system initialization
 ```bash
 # install dependencies
 yum install -y epel-release
@@ -92,7 +93,7 @@ NAME="ens192"
 UUID="88f530cf-851d-4f23-a1f7-326684d9df15"
 DEVICE="ens192"
 ONBOOT="yes"
-IPADDR="192.168.2.50"
+IPADDR="192.168.2.61"
 NETMASK="255.255.255.0"
 GATEWAY="192.168.2.1"
 DNS1="192.168.2.1"
@@ -112,10 +113,16 @@ cat >> /etc/hosts <<EOF
 EOF
 ```
 
+# sshd allow root login without password
+```bash
+vi /etc/ssh/sshd_config
+ListenAddress 0.0.0.0
+PermitRootLogin yes
+PermitEmptyPasswords no
+```
+
 # set ssh-key
 ```bash
 ssh-keygen -t rsa 
-ssh-copy-id root@zhangjun-k8s-01
-ssh-copy-id root@zhangjun-k8s-02
-ssh-copy-id root@zhangjun-k8s-03
+ssh-copy-id root@192.168.2.61
 ```
