@@ -106,7 +106,17 @@ systemctl restart network
 ```bash
 hostnamectl set-hostname k8s-master01
 cat >> /etc/hosts <<EOF
-{ip} {hostname}
+192.168.2.61 k8s-master1
+192.168.2.62 k8s-master2
+192.168.2.63 k8s-master3
+192.168.2.71 k8s-node1
+192.168.2.72 k8s-node2
+192.168.2.73 k8s-node3
+192.168.2.74 k8s-node4
+192.168.2.75 k8s-node5
+192.168.2.76 k8s-node6
+192.168.2.77 k8s-node7
+192.168.2.78 k8s-node8
 ...
 ...
 
