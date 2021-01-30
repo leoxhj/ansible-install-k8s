@@ -34,9 +34,9 @@
   systemd: name=etcd state=restarted enabled=yes daemon_reload=yes
 
 - name: 分发etcd脚本
-  template: src=etcd.sh.j2 dest={{ tmp_dir }}/etcd.sh mode=u+x
+  template: src=etcd.sh.j2 dest={{ etcd_work_dir }}/etcd.sh mode=u+x
 
 - name: 获取etcd集群状态
-  shell: /bin/bash {{ tmp_dir }}/etcd.sh
+  shell: /bin/bash {{ etcd_work_dir }}/etcd.sh
   register: status 
 - debug: var=status.stdout_lines

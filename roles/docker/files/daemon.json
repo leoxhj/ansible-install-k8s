@@ -1,6 +1,5 @@
 {
-  "registry-mirrors": ["https://b9pmyelo.mirror.aliyuncs.com"],
-  "insecure-registries": ["192.168.2.70"],
+  "registry-mirrors": ["https://3yob3luz.mirror.aliyuncs.com"],
   "log-driver": "json-file",
   "log-opts": {
     "max-size": "100m"

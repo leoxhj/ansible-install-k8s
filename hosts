@@ -12,8 +12,8 @@
 
 [lb]
 # 如果部署单Master，该项忽略
-192.168.2.64 lb_name=lb-master
-192.168.2.65 lb_name=lb-backup
+192.168.2.61 lb_name=lb-master
+192.168.2.62 lb_name=lb-backup
 
 [node]
 192.168.2.71 node_name=k8s-node1

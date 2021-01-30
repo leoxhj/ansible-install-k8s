@@ -2,18 +2,14 @@
 | 组件 | 版本 | 发布时间 |
 | --- | --- | --- |
 | kubernetes | 1.18.6 | 2020-01-22 |
-| etcd | 3.4.3 | 2019-10-24 |
-| containerd | 1.3.3 | 2020-02-07 |
-| runc | 1.0.0-rc10 | 2019-12-23 |
-| calico | 3.12.0 | 2020-01-27 |
+| etcd | 3.4.9 | 2019-10-24 |
+| docker | 19.03.9 | 2020-02-07 |
+| flannel | 0.11.0 | 2020-01-27 |
 | coredns | 1.6.6 | 2019-12-20 |
 | dashboard | v2.0.0-rc4 | 2020-02-06 |
-| k8s-prometheus-adapter | 0.5.0 | 2019-04-03|
-| prometheus-operator | 0.35.0 | 2020-01-13 |
-| prometheus | 2.15.2 | 2020-01-06 |
-| elasticsearch、kibana | 7.2.0 | 2019-06-25 |
-| cni-plugins | 0.8.5 | 2019-12-20 |
-| metrics-server | 0.3.6 | 2019-10-15 |
+| cni-plugins | 0.8.6 | 2019-12-20 |
+| nginx | 1.16.1 | 2019-10-15 |
+| keepalived | 1.3.5 | 2019-10-15 |
 
 # Kubernetes v1.18 高可用集群自动部署（离线版）
 >### 确保所有节点系统时间一致
@@ -53,11 +49,11 @@ cert_hosts:
 ```
 ## 3、一键部署
 ### 架构图
-单Master架构
-![avatar](https://github.com/lizhenliang/ansible-install-k8s/blob/master/single-master.jpg)
+单Master架构  
+![avatar](./single-master.jpg)
 
-多Master架构
-![avatar](https://github.com/lizhenliang/ansible-install-k8s/blob/master/multi-master.jpg)
+多Master架构  
+![avatar](./multi-master.jpg)
 ### 部署命令
 单Master版：
 ```
