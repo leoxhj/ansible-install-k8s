@@ -1,0 +1,9 @@
+---
+- name: 0.deploy lvmd service to work node
+  gather_facts: false
+  hosts: 
+    - node
+  roles:
+    - lvmd
+  tags: lvmd
+

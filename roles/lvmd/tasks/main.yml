@@ -1,0 +1,20 @@
+---
+- name: create /opt/sbin directory
+  file: dest=/opt/sbin state=directory
+- name: create /etc/topolvm directory
+  file: dest=/etc/topolvm state=directory
+- name: copy lvmd binary
+  copy: src=lvmd dest=/opt/sbin
+- name: copy lvmd.service
+  copy: src=lvmd.service dest=/etc/systemd/system
+- name: copy lvmd.yaml
+  copy: src=lvmd.yaml dest=/etc/topolvm
+- name: enable lvmd service
+  ignore_errors: yes
+  shell: |
+         systemctl enable lvmd
+         systemctl start lvmd
+- name: list lvm service
+  shell: systemctl status lvmd
+  register: getall
+- debug: var=getall.stdout_lines

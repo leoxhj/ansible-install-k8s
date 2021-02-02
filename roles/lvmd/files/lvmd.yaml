@@ -1,0 +1,6 @@
+socket-name: /run/topolvm/lvmd.sock
+device-classes:
+  - name: ssd
+    volume-group: VolGroup01
+    default: true
+    spare-gb: 10
