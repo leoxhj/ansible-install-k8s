@@ -1,0 +1,5 @@
+---
+- name: create /var/lib/scheduler/ directory
+  file: dest=/var/lib/scheduler/ state=directory
+- name: copy file to node
+  copy: src=scheduler-policy dest=/var/lib/scheduler/
