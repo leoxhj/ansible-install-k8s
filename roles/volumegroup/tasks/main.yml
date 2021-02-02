@@ -1,0 +1,11 @@
+---
+- name: copy init_disk.sh file to node
+  copy: src=init_disk.sh dest=/tmp
+- name: create volume group
+  ignore_errors: yes
+  shell: |
+         bash /tmp/init_disk.sh
+- name: list file system
+  shell: df -h
+  register: getall
+- debug: var=getall.stdout_lines
