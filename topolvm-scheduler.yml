@@ -2,7 +2,7 @@
 - name: 0.copy scheduler config
   gather_facts: false
   hosts: 
-    - node
+    - master
   roles:
     - topolvm-scheduler
   tags: topolvm-scheduler
