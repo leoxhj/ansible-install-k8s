@@ -3,3 +3,7 @@
   file: dest=/var/lib/scheduler/ state=directory
 - name: copy file to node
   copy: src=scheduler-policy.cfg dest=/var/lib/scheduler/
+- name: create /etc/topolvm/scheduler/ directory
+  file: dest=/etc/topolvm/scheduler/ state=directory
+- name: copy file to node
+  copy: src=scheduler-policy.cfg dest=/etc/topolvm/scheduler/
