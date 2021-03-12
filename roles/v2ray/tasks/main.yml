@@ -1,6 +1,4 @@
 ---
-- name: create /etc/systemd/system/v2ray
-  file: dest=/etc/systemd/system/v2ray state=directory
 - name: create /usr/local/etc/v2ray
   file: dest=/usr/local/etc/v2ray state=directory
 - name: create /usr/local/share/v2ray
@@ -14,7 +12,15 @@
 - name: copy geosite.dat
   copy: src=geosite.dat dest=/usr/local/share/v2ray
 - name: copy v2ray.service
-  copy: src=v2ray.service dest=/etc/systemd/system/v2ray
+  copy: src=v2ray.service dest=/etc/systemd/system/
+- name: chmod 755
+  shell: chmod 755 /usr/local/bin/v2*
+- name: add http_proxy
+  shell: sed -i '$a\export http_proxy=127.0.0.1:1088'  /root/.bashrc
+- name: add http_proxy
+  shell: sed -i '$a\export https_proxy=$http_proxy'  /root/.bashrc
+- name: source .bashrc
+  shell: source /root/.bashrc
 - name: copy config.json
   copy: src=config.json dest=/usr/local/etc/v2ray
 - name: enable v2ray service
