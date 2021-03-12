@@ -1,0 +1,28 @@
+---
+- name: create /etc/systemd/system/v2ray
+  file: dest=/etc/systemd/system/v2ray state=directory
+- name: create /usr/local/etc/v2ray
+  file: dest=/usr/local/etc/v2ray state=directory
+- name: create /usr/local/share/v2ray
+  file: dest=/usr/local/share/v2ray state=directory
+- name: copy v2ctl
+  copy: src=v2ctl dest=/usr/local/bin
+- name: copy v2ray
+  copy: src=v2ray dest=/usr/local/bin
+- name: copy geoip.dat
+  copy: src=geoip.dat dest=/usr/local/share/v2ray
+- name: copy geosite.dat
+  copy: src=geosite.dat dest=/usr/local/share/v2ray
+- name: copy v2ray.service
+  copy: src=v2ray.service dest=/etc/systemd/system/v2ray
+- name: copy config.json
+  copy: src=config.json dest=/usr/local/etc/v2ray
+- name: enable v2ray service
+  ignore_errors: yes
+  shell: |
+         systemctl enable v2ray
+         systemctl start v2ray
+- name: list v2ray service
+  shell: systemctl status v2ray
+  register: getall
+- debug: var=getall.stdout_lines
