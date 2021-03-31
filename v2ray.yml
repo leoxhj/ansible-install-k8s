@@ -2,7 +2,7 @@
 - name: install v2ray
   gather_facts: false
   hosts: 
-    - k8s:children
+    - kind
   roles:
     - v2ray
   tags: v2ray

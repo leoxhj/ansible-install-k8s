@@ -43,3 +43,5 @@ node
 [newnode]
 #192.168.2.81 node_name=k8s-node9
 
+[kind]
+192.168.2.56 node_name=kind
