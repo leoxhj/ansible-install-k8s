@@ -45,3 +45,5 @@ node
 
 [kind]
 192.168.2.56 node_name=kind
+[minikube]
+192.168.2.57 node_name=minikube
