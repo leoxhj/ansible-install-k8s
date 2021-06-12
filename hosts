@@ -40,10 +40,6 @@
 master
 node
 
-[k8s:children]
-master
-node
-
 [newnode]
 #192.168.2.81 node_name=k8s-node9
 
