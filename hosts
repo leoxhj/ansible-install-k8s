@@ -36,7 +36,7 @@
 192.168.2.92 node_name=k8s-node02
 192.168.2.93 node_name=k8s-node03
 
-[all_k8s_nodes:childred]
+[all_k8s_nodes:children]
 master
 node
 
