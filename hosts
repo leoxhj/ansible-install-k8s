@@ -1,0 +1,22 @@
+[master]
+192.168.2.51 node_name=k8s-master1
+192.168.2.52 node_name=k8s-master2
+192.168.2.53 node_name=k8s-master3
+
+[etcd]
+192.168.2.51 etcd_name=etcd-1
+192.168.2.52 etcd_name=etcd-2
+192.168.2.53 etcd_name=etcd-3
+
+[lb]
+192.168.2.51 lb_name=lb-master
+192.168.2.52 lb_name=lb-backup
+
+[node]
+192.168.2.54 node_name=k8s-node1
+192.168.2.55 node_name=k8s-node2
+192.168.2.56 node_name=k8s-node3
+
+[all_k8s_nodes:children]
+master
+node
