@@ -64,7 +64,7 @@
     - kube-scheduler
 
 - name: 查看集群状态
-  shell: sleep 3 && kubectl get cs
+  shell: chmod 744 /usr/bin/kubectl && sleep 3 && kubectl get cs
   register: cs
 - debug: var=cs.stdout_lines
 
