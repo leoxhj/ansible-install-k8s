@@ -21,7 +21,7 @@
   with_fileglob:
     - "{{ software_dir }}/cni-plugins-*.tgz"
 
-  - name: 分发并解压k8s二进制包
+- name: 分发并解压k8s二进制包
   unarchive: src={{ item }} dest={{ tmp_dir }}
   with_fileglob:
     - "{{ software_dir }}/kubernetes*.tar.gz"  
