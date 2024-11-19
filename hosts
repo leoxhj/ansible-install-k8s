@@ -17,8 +17,6 @@
 192.168.2.55 node_name=k8s-node2
 192.168.2.56 node_name=k8s-node3
 
-[admin]
-192.168.2.50 node_name=admin
 
 [k8s:children]
 master
