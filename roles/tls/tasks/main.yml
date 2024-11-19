@@ -9,9 +9,6 @@
     - etcd
     - k8s
 
-- name: 准备cfssl工具
-  unarchive: src={{ software_dir }}/cfssl.tar.gz dest=/usr/bin/ mode=u+x
-
 - name: 准备etcd证书请求文件
   template: src=etcd/{{ item }} dest={{ root_dir.stdout }}/ssl/etcd/{{ item.split('.')[:-1]|join('.') }}
   with_items:
