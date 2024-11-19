@@ -15,7 +15,10 @@
     - "{{ software_dir }}/etcd-v*.tar.gz"
 
 - name: 移动etcd二进制文件
-  shell: cp {{ tmp_dir }}/etcd-v*/{etcd,etcdctl} {{ etcd_work_dir }}/bin
+  copy: src={{ tmp_dir }}/etcd-v*/{{ item }} dest={{ etcd_work_dir }}/bin
+  with_items:
+    - etcd
+    - etcdctl
 
 - name: 分发证书
   copy: src=etcd_cert/{{ item }} dest={{ etcd_work_dir }}/ssl
