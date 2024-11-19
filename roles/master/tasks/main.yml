@@ -14,7 +14,9 @@
   file: dest={{ tmp_dir }} state=directory
 
 - name: 移动k8s master二进制文件
-  shell: cp -rf {{ software_dir }}/kube-[a,c,s]* {{ k8s_work_dir }}/bin && \
+  shell: cp -rf {{ software_dir }}/kube-apiserver {{ k8s_work_dir }}/bin && \
+         cp -rf {{ software_dir }}/kube-controller-manager {{ k8s_work_dir }}/bin && \
+         cp -rf {{ software_dir }}/kube-scheduler {{ k8s_work_dir }}/bin && \
          cp -rf {{ software_dir }}/kubectl /usr/bin
 
 - name: 分发k8s证书
