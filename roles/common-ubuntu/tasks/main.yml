@@ -1,12 +1,5 @@
 ---
 # 这个剧本在所有节点上运行
-
-- name: Disable selinux
-  lineinfile:
-    dest: /etc/selinux/config
-    regexp: "^SELINUX="
-    line: "SELINUX=disabled"
-
 - name: Update /etc/fstab
   lineinfile:
     dest: /etc/fstab
