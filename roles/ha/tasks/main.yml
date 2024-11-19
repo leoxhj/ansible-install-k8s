@@ -2,15 +2,15 @@
 - name: 创建临时目录
   file: dest={{ tmp_dir }} state=directory
 
-- name: Install the version '1.24.0' of package "nginx" and allow potential downgrades
+- name: Install the version  of package "nginx" and allow potential downgrades
   ansible.builtin.apt:
-    name: nginx=1.24.0
+    name: nginx
     state: present
     allow_downgrade: yes
 
-- name: Install the version '2.2.8' of package "keepalived" and allow potential downgrades
+- name: Install latest version of package "keepalived" and allow potential downgrades
   ansible.builtin.apt:
-    name: keepalived=2.2.8
+    name: keepalived
     state: present
     allow_downgrade: yes
 
