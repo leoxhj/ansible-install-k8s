@@ -16,18 +16,13 @@
 - name: 创建临时目录
   file: dest={{ tmp_dir }} state=directory
 
-- name: 分发并解压k8s二进制包
-  unarchive: src={{ item }} dest={{ tmp_dir }}
-  with_fileglob:
-    - "{{ software_dir }}/kubernetes-*.tar.gz"
-
 - name: 分发并解压cni插件二进制包
   unarchive: src={{ item }} dest=/opt/cni/bin
   with_fileglob:
     - "{{ software_dir }}/cni-plugins-*.tgz"
 
 - name: 移动k8s node二进制文件
-  shell: cp -rf {{ tmp_dir }}/kubernetes/server/bin/{kubelet,kube-proxy} {{ k8s_work_dir }}/bin
+  shell: cp -rf {{ software_dir }}/{kubelet,kube-proxy} {{ k8s_work_dir }}/bin
 
 - name: 分发k8s证书
   copy: src=k8s_cert/{{ item }} dest={{ k8s_work_dir }}/ssl
@@ -57,11 +52,3 @@
   with_items:
     - kubelet
     - kube-proxy
-
-- name: 分发预准备镜像
-  copy: src={{ software_dir }}/image.tar.gz dest={{ tmp_dir }}
-
-- name: 导入镜像
-  shell: cd {{ tmp_dir }} && \
-         tar zxf image.tar.gz && \
-         for image in $(ls *.tar);do docker load < $image;done

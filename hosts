@@ -20,6 +20,6 @@
 [admin]
 192.168.2.50 node_name=admin
 
-[all_k8s_nodes:children]
+[k8s:children]
 master
 node

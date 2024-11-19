@@ -1,0 +1,56 @@
+---
+- name: 0.System Initialize
+  gather_facts: false
+  hosts: all 
+  roles:
+    - common-ubuntu
+  tags: common-ubuntu
+
+- name: 1.Self-signed CA and certificate
+  gather_facts: false
+  hosts: localhost 
+  roles:
+    - tls
+  tags: tls
+
+- name: 2.Deploy Docker
+  gather_facts: false
+  hosts: k8s 
+  roles:
+    - docker 
+  tags: docker
+
+- name: 3.Deploy ETCD cluster
+  gather_facts: false
+  hosts: etcd
+  roles:
+    -  etcd
+  tags: etcd
+
+- name: 4.Deploy K8S Master
+  gather_facts: false
+  hosts: master
+  roles:
+    - master
+  tags: master
+
+- name: 5. Deploy Nginx LB
+  gather_facts: false
+  hosts: lb
+  roles:
+    - ha
+  tags: ha
+
+- name: 6.Deploy K8S Node
+  gather_facts: false
+  hosts: k8s 
+  roles:
+    - node
+  tags: node
+
+- name: 7.Deploy plugins
+  gather_facts: false
+  hosts: master
+  roles:
+    - addons
+  tags: addons

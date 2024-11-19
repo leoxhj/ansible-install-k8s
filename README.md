@@ -1,24 +1,26 @@
 # 主要组件版本
-| 组件 | 版本 | 发布时间 |
-| --- | --- | --- |
-| kubernetes | 1.18.6 | 2020-01-22 |
-| etcd | 3.4.9 | 2019-10-24 |
-| docker | 19.03.9 | 2020-02-07 |
-| flannel | 0.11.0 | 2020-01-27 |
-| coredns | 1.6.6 | 2019-12-20 |
-| dashboard | v2.0.0-rc4 | 2020-02-06 |
-| cni-plugins | 0.8.6 | 2019-12-20 |
-| nginx | 1.16.1 | 2019-10-15 |
-| keepalived | 1.3.5 | 2019-10-15 |
+| 组件                       | 版本     | 发布时间       |
+|--------------------------|--------|------------|
+| kubernetes               | 1.30.5 | 2024-10-22 |
+| etcd                     | 3.4.34 | 2024-9-12  |
+| docker                   | 27.3.1 | 2024-09-20 |
+| flannel                  | 0.14.0 | 2020-01-27 |
+| coredns                  | 1.11.4 | 2024-11-12 |
+| dashboard                | 2.7.0  | 2022-09-16 |
+| metrics-scraper          | 1.0.9  | 2023-05-17 |
+| cni-plugins              | 1.6.0  | 2024-10-15 |
+| nginx                    | 1.24.0 | 2023-04-11 |
+| keepalived               | 2.2.8  | 2023-04-04 |
+| nginx-ingress-controller | 0.32.0 | 2020-10-10 |
 
-# Kubernetes v1.18 高可用集群自动部署（离线版）
+# Kubernetes v1.30.5 高可用集群自动部署（离线版）
 >### 确保所有节点系统时间一致
 ### 1、下载所需文件
 
 下载Ansible部署文件：
 
 ```
-# git clone https://github.com/lizhenliang/ansible-install-k8s
+# git clone git@github.com:leoxhj/ansible-install-k8s.git
 # cd ansible-install-k8s
 ```
 
@@ -62,6 +64,8 @@ cert_hosts:
 多Master版：
 ```
 # ansible-playbook -i hosts multi-master-deploy.yml -uroot -k
+# for ubuntu
+# ansible-playbook -i hosts multi-master-deploy-ubuntu.yml -uroot -k
 ```
 
 ## 4、部署控制
