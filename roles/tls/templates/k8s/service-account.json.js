@@ -9,7 +9,9 @@
     {
       "C": "CN",
       "L": "BeiJing",
-      "ST": "BeiJing"
+      "ST": "BeiJing",
+      "O": "k8s",
+      "OU": "System"
     }
   ]
 }
