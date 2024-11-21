@@ -20,7 +20,7 @@ KUBE_APISERVER_OPTS="--logtostderr=false \
 --client-ca-file={{ k8s_work_dir }}/ssl/ca.pem \
 --service-account-key-file={{ k8s_work_dir }}/ssl/service-account-key.pem \
 --service-account-signing-key-file={{ k8s_work_dir }}/ssl/service-account.pem \
---service-account-issuer=https://server.kubernetes.local:6443 \
+--service-account-issuer=https://kubernetes.default.svc.cluster.local:6443 \
 --etcd-cafile={{ k8s_work_dir }}/ssl/etcd/ca.pem \
 --etcd-certfile={{ k8s_work_dir }}/ssl/etcd/server.pem \
 --etcd-keyfile={{ k8s_work_dir }}/ssl/etcd/server-key.pem \
