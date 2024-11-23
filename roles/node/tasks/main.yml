@@ -28,7 +28,8 @@
 
 - name: 移动k8s node二进制文件
   shell: cp -rf {{ tmp_dir }}/kubelet {{ k8s_work_dir }}/bin && \ 
-         cp -rf {{ tmp_dir }}/kube-proxy {{ k8s_work_dir }}/bin 
+         cp -rf {{ tmp_dir }}/kube-proxy {{ k8s_work_dir }}/bin && \
+         chmod 74 {{ k8s_work_dir }}/bin/kube*
 
 - name: 分发k8s证书
   copy: src=k8s_cert/{{ item }} dest={{ k8s_work_dir }}/ssl
