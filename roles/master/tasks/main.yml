@@ -22,6 +22,7 @@
   shell: cp -rf {{ tmp_dir }}/kube-apiserver {{ k8s_work_dir }}/bin && \
          cp -rf {{ tmp_dir }}/kube-controller-manager {{ k8s_work_dir }}/bin && \
          cp -rf {{ tmp_dir }}/kube-scheduler {{ k8s_work_dir }}/bin && \
+         chmod 744 {{ k8s_work_dir }}/bin/kube* && \
          cp -rf {{ tmp_dir }}/kubectl /usr/bin
 
 - name: 分发k8s证书
