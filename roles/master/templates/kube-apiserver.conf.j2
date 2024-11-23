@@ -1,7 +1,5 @@
 {% set local_ip = inventory_hostname %}
-KUBE_APISERVER_OPTS="--logtostderr=false \
---v=2 \
---log-dir={{ k8s_work_dir }}/logs \
+KUBE_APISERVER_OPTS="--v=2 \
 --etcd-servers={% for host in groups['etcd'] %}https://{{ hostvars[host].inventory_hostname }}:2379{% if not loop.last %},{% endif %}{% endfor %} \
 --bind-address={{ local_ip }} \
 --secure-port=6443 \
@@ -18,8 +16,8 @@ KUBE_APISERVER_OPTS="--logtostderr=false \
 --tls-cert-file={{ k8s_work_dir }}/ssl/server.pem  \
 --tls-private-key-file={{ k8s_work_dir }}/ssl/server-key.pem \
 --client-ca-file={{ k8s_work_dir }}/ssl/ca.pem \
---service-account-key-file={{ k8s_work_dir }}/ssl/service-account-key.pem \
---service-account-signing-key-file={{ k8s_work_dir }}/ssl/service-account.pem \
+--service-account-key-file={{ k8s_work_dir }}/ssl/service-account.pem \
+--service-account-signing-key-file={{ k8s_work_dir }}/ssl/service-account-key.pem \
 --service-account-issuer=https://kubernetes.default.svc.cluster.local:6443 \
 --etcd-cafile={{ k8s_work_dir }}/ssl/etcd/ca.pem \
 --etcd-certfile={{ k8s_work_dir }}/ssl/etcd/server.pem \
