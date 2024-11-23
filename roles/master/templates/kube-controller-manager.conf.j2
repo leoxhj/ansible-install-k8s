@@ -1,6 +1,6 @@
 KUBE_CONTROLLER_MANAGER_OPTS="--v=2 \
 --leader-elect=true \
---master=127.0.0.1:80 \
+--master=127.0.0.1:16443 \
 --bind-address=127.0.0.1 \
 --allocate-node-cidrs=true \
 --cluster-cidr={{ pod_cidr }} \
