@@ -71,7 +71,7 @@
 - name: Create kubconfig file
   shell: kubectl config set-cluster kubernetes --server=https://{{ vip }}:16443 --certificate-authority={{ k8s_work_dir }}/ssl/ca.pem --embed-certs=true && \
          kubectl config set-context kubernetes --cluster=kubernetes --user=admin --namespace=kube-system && \
-         kubectl config set-credentials kubectl --client-key={{ k8s_work_dir }}/ssl/admin-key.pem --client-certificate={{ k8s_work_dir }}/ssl/admin.pem --user=admin --embed-certs=true
+         kubectl config set-credentials admin --client-key={{ k8s_work_dir }}/ssl/admin-key.pem --client-certificate={{ k8s_work_dir }}/ssl/admin.pem --user=admin --embed-certs=true
 
 - name: 查看集群状态
   shell: chmod 744 /usr/bin/kubectl && sleep 3 && kubectl get cs
