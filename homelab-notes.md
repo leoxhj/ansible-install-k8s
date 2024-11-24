@@ -84,6 +84,7 @@ LAN:	192.168.2.150:806
 ```bash
 kubectl config set-cluster kubernetes --server=https://192.168.2.88:8080 --certificate-authority=/root/ansible-install-k8s/ssl/k8s/ca.pem --embed-certs=true
 kubectl config set-context kubernetes --cluster=kubernetes --user=admin --namespace=kube-system
+kubectl config use-context kubernetes
 cfssl gencert -ca /etc/kubernetes/ssl/ca.pem -ca-key /etc/kubernetes/ssl/ca-key.pem -config /etc/kubernetes/ssl/ca-config.json -profile kubernetes kubectl-csr.json | cfssljson -bare kubectl
 kubectl config set-credentials admin --client-key=/root/ansible-install-k8s/ssl/k8s/admin-key.pem --client-certificate=/root/ansible-install-k8s/ssl/k8s/admin.pem --user=admin --embed-certs=true
 ```
