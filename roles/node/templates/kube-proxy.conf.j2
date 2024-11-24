@@ -1,4 +1,2 @@
-KUBE_PROXY_OPTS="--logtostderr=false \
---v=4 \
---log-dir={{ k8s_work_dir }}/logs \
+KUBE_PROXY_OPTS="--v=4 \
 --config={{ k8s_work_dir }}/cfg/kube-proxy-config.yml"
