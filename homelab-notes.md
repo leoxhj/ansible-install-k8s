@@ -88,4 +88,10 @@ kubectl config use-context kubernetes
 cfssl gencert -ca /etc/kubernetes/ssl/ca.pem -ca-key /etc/kubernetes/ssl/ca-key.pem -config /etc/kubernetes/ssl/ca-config.json -profile kubernetes kubectl-csr.json | cfssljson -bare kubectl
 kubectl config set-credentials admin --client-key=/root/ansible-install-k8s/ssl/k8s/admin-key.pem --client-certificate=/root/ansible-install-k8s/ssl/k8s/admin.pem --user=admin --embed-certs=true
 ```
+* get pending csr from master
+  `kubectl get csr`
+* approve pending csr from node
+  `kubectl certificate approve (-f FILENAME | NAME)·`
+
+* 
 
