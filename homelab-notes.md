@@ -93,5 +93,6 @@ kubectl config set-credentials admin --client-key=/root/ansible-install-k8s/ssl/
 * approve pending csr from node
   `kubectl certificate approve (-f FILENAME | NAME)·`
 
-* 
+* check etcd server members
+  ` ETCDCTL_API=3 /opt/etcd/bin/etcdctl --cacert=/opt/etcd/ssl/ca.pem --cert=/opt/etcd/ssl/server.pem --key=/opt/etcd/ssl/server-key.pem --endpoints=https://192.168.2.51:2379,https://192.168.2.52:2379,https://192.168.2.53:2379 member list -w table`
 
